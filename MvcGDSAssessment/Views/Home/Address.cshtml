@@ -1,0 +1,32 @@
+@model AddressViewModel;
+@{
+    ViewData["Title"] = "Address Page";
+}
+
+@{
+  if (((int)TempData.Peek("CheckAnswers")) == 0)
+  {
+    <a asp-controller="Home" asp-action="Email" class="govuk-back-link">Back</a>
+  }
+}
+<form method="post">
+<div class="govuk-form-group">
+  <label class="govuk-label" for="address">
+    What is your home address?
+  </label>
+  @{
+      if (TempData.Peek("Address") != null)
+      {
+          <textarea class="govuk-textarea" id="address" name="address" rows="5" autocomplete="street-address">@TempData.Peek("Address")</textarea>
+      }
+      else
+      {
+          <textarea class="govuk-textarea" id="address" name="address" rows="5" autocomplete="street-address"></textarea>
+      }
+  }
+  <div>&nbsp;</div>
+  <button class="govuk-button" data-module="govuk-button" asp-action="Address" asp-controller="Home">
+    Continue
+  </button>
+</div>
+</form>

@@ -1,0 +1,125 @@
+
+
+@{
+    ViewData["Title"] = "Brightness Page";
+}
+
+@{
+  if (((int)TempData.Peek("CheckAnswers")) == 0)
+  {
+    <a asp-controller="Home" asp-action="Light" class="govuk-back-link">Back</a>
+  }
+}
+<form method="post">
+    <div class="govuk-form-group">
+    <label class="govuk-label" for="sort">
+        Brightness
+    </label>
+    <select class="govuk-select" id="brightness" name="brightness">
+        @{
+
+            @* if(TempData["Brightness"] == null)
+            {
+                <option value="10" selected>Very Bright</option>
+            } *@
+
+            if ((TempData["Brightness"] != null) && (int.Parse((string)TempData["Brightness"])==10))
+            {
+                <option value="10" selected>Very Bright</option>
+            }
+            else
+            {
+                <option value="10">Very Bright</option>
+            }
+
+            if ((TempData["Brightness"] != null) && (int.Parse((string)TempData["Brightness"]) == 9))
+            {
+                <option value="9" selected>Lightest</option>
+            }
+            else
+            {
+                <option value="9">Lightest</option>
+            }
+
+            if ((TempData["Brightness"] != null) && (int.Parse((string)TempData["Brightness"]) == 8))
+            {
+                <option value="8" selected>Very light</option>
+            }
+            else
+            {
+                <option value="8">Very light</option>
+            }
+            
+            if ((TempData["Brightness"] != null) && (int.Parse((string)TempData["Brightness"]) == 7))
+            {
+                <option value="7" selected>Light</option>
+            }
+            else
+            {
+                <option value="7">Light</option>
+            }
+
+            if ((TempData["Brightness"] != null) &&(int.Parse((string)TempData["Brightness"]) == 6))
+            {
+                <option value="6" selected>Meduim Light</option>
+            }
+            else
+            {
+                <option value="6">Meduim Light</option>
+            }
+            
+            if ((TempData["Brightness"] != null) && (int.Parse((string)TempData["Brightness"]) == 5))
+            {
+                <option value="5" selected>Lightest Dark</option>
+            }
+            else
+            {
+                <option value="5">Lightest Dark</option>
+            }
+            
+            if ((TempData["Brightness"] != null) &&(int.Parse((string)TempData["Brightness"]) == 4))
+            {
+                <option value="4" selected>Light Dark</option>
+            }
+            else
+            {
+                <option value="4">Light Dark</option>
+            }
+
+            if ((TempData["Brightness"] != null) && (int.Parse((string)TempData["Brightness"]) == 3))
+            {
+                <option value="3" selected>Dark</option>
+            }
+            else
+            {
+                <option value="3">Dark</option>
+            }
+
+            if ((TempData["Brightness"] != null) && (int.Parse((string)TempData["Brightness"]) == 2))
+            {
+                <option value="2">Medium dark</option>
+            }
+            else
+            {
+                <option value="2">Medium dark</option>
+            }
+        
+            if ((TempData["Brightness"] != null) && (int.Parse((string)TempData["Brightness"]) == 1))
+            {
+                <option value="1" selected>Very Dark</option>
+            }
+            else
+            {
+                <option value="1">Very Dark</option>
+            }
+
+        
+        
+        }
+    </select>
+        <div>&nbsp;</div>
+        <button class="govuk-button" data-module="govuk-button" asp-action="Brightness" asp-controller="Home">
+        Continue
+        </button>
+    </div>
+</form>

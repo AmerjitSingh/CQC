@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Address Error Page";
+}
+
+@{
+  if (((int)TempData.Peek("CheckAnswers")) == 0)
+  {
+    <a asp-controller="Home" asp-action="Email" class="govuk-back-link">Back</a>
+  }
+}
+<form method="post">
+  <div class="govuk-form-group govuk-form-group--error">
+    <label class="govuk-label" for="address">
+      What is your home address?
+    </label>
+      <span id="address-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Enter a least 3 characters and at most 250
+      </span>
+      <textarea class="govuk-textarea govuk-input--error" id="address" name="address" rows="5" autocomplete="address address-error"></textarea>
+      <div>&nbsp;</div>
+      <button class="govuk-button" data-module="govuk-button" asp-action="Address" asp-controller="Home">
+      Continue
+    </button>
+  </div>
+</form>

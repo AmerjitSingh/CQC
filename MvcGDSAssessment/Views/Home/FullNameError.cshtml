@@ -1,0 +1,20 @@
+
+@{
+    ViewData["Title"] = "Fullname Error Page";
+}
+
+<form method="post">
+  <div class="govuk-form-group govuk-form-group--error">
+    <label class="govuk-label" for="full-name">
+      Full name
+    </label>
+    <span id="fullname-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span> Enter a least 3 characters and at most 50
+    </span>
+    <input class="govuk-input govuk-input--error" id="fullname" name="fullname" type="text" autocomplete="name" spellcheck="false" aria-describedby="full-name-hint full-name-error">
+    <div>&nbsp;</div>
+    <button class="govuk-button" data-module="govuk-button" asp-action="FullName" asp-controller="Home">
+    Continue
+   </button>
+  </div>
+</form>

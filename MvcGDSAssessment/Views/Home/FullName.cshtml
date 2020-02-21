@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Fullname Page";
+}
+
+<form method="post">
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="full-name">
+      Full name
+    </label>
+    @{
+
+      if (TempData.Peek("FullName") != null)
+      {
+       <input class="govuk-input" id="fullname" name="fullname" type="text" autocomplete="name" value='@TempData.Peek("FullName")' spellcheck="false">
+      }else
+      {
+      <input class="govuk-input" id="fullname" name="fullname" type="text" autocomplete="name" spellcheck="false">
+      }
+    }
+    <div>&nbsp;</div>
+    <button class="govuk-button" data-module="govuk-button" asp-action="FullName" asp-controller="Home" >
+    Continue
+   </button>
+  </div>
+</form>

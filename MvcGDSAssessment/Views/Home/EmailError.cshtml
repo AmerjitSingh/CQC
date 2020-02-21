@@ -1,0 +1,28 @@
+@{
+    ViewData["Title"] = "Email Error Page";
+}
+
+@{
+  if (((int)TempData.Peek("CheckAnswers")) == 0)
+  {
+    <a asp-controller="Home" asp-action="FullName" class="govuk-back-link">Back</a>
+  }
+}
+<form method="post">
+  <div class="govuk-form-group govuk-form-group--error">
+    <label class="govuk-label" for="email">
+      Email address
+    </label>
+    <span id="email-hint" class="govuk-hint">
+      We’ll only use this to send you a receipt
+    </span>
+    <span id="email-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span> Entered email is invalid
+    </span>
+    <input class="govuk-input govuk-input--error" id="email" name="email" type="text" autocomplete="name" spellcheck="false" aria-describedby="email-hint email-error">
+    <div>&nbsp;</div>
+    <button class="govuk-button" data-module="govuk-button" asp-action="Email" asp-controller="Home">
+    Continue
+   </button>
+  </div>
+</form>

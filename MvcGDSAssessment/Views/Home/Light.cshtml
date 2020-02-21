@@ -1,0 +1,63 @@
+@model AddressViewModel;
+
+@{
+    ViewData["Title"] = "Light Page";
+}
+
+@{
+  if (((int)TempData.Peek("CheckAnswers")) == 0)
+  {
+    <a asp-controller="Home" asp-action="Address" class="govuk-back-link">Back</a>
+  }
+}
+<form method="post">
+    <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="light-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+        <h1 class="govuk-fieldset__heading">
+            Are they happy with the level of lighting ?
+        </h1>
+        </legend>
+        <span id="light-hint" class="govuk-hint">
+        This includes all lighting in and round your home.
+        </span>
+        <div class="govuk-radios govuk-radios--inline">
+        <div class="govuk-radios__item">
+            @{
+                  if  ((TempData.Peek("Light")!=null) && (((string)TempData.Peek("Light")) == "yes"))
+                  {
+                    <input class="govuk-radios__input" id="light" name="ight" type="radio" value="yes" checked >
+                  }
+                  else
+                  {
+                    <input class="govuk-radios__input" id="light" name="light" type="radio" value="yes">  
+                  }
+            
+            }
+            <label class="govuk-label govuk-radios__label" for="light">
+            Yes
+            </label>
+        </div>
+        <div class="govuk-radios__item">
+            @{
+                  if  ((TempData.Peek("Light")!=null)&& (((string)TempData.Peek("Light")) == "no"))
+                  {
+                    <input class="govuk-radios__input" id="light" name="light" type="radio" value="no" checked>
+                  }
+                  else
+                  {
+                    <input class="govuk-radios__input" id="light" name="light" type="radio" value="no">  
+                  }
+            }
+            <label class="govuk-label govuk-radios__label" for="light">
+            No
+            </label>
+        </div>
+        </div>
+    </fieldset>
+        <div>&nbsp;</div>
+        <button class="govuk-button" data-module="govuk-button" asp-action="Light" asp-controller="Home">
+        Continue
+        </button>
+    </div>
+</form>
